@@ -10,9 +10,9 @@ const venueImageMap: Record<string, string> = {
 export default async function VenueDetailPage({
   params,
 }: {
-  params: { vid: string };
+  params: Promise<{ vid: string }>;
 }) {
-  const { vid } = params;
+  const { vid } = await params;
   const venueJson = await getVenue(vid);
   const venue: VenueItem = venueJson.data;
 
